@@ -1,15 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="en" dir="ltr">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <title>AAUP | Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aadhar Address Update | Welcome</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="nav.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
   </head>
+
   <body>
+    <!--Navigation and links-->
+    <nav>
+      <input type="checkbox" id="check" />
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <label class="logo">Aadhar Update</label>
+      <ul>
+        <li><a class="active" href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Feedback</a></li>
+      </ul>
+    </nav>
+    <!--End of navigation and links-->>
     <div class="center">
-      <h1>hello</h1>
+      <h1>Login</h1>
+      <form method="post">
+        <div class="txt_field">
+          <input type="password" required />
+          <span></span>
+          <label>Phone Number</label>
+        </div>
+
+        <input type="submit" value="Login" />
+        <div class="signup_link">
+          Not Yet Registered? <a href="signup.html">Signup</a>
+        </div>
+      </form>
     </div>
   </body>
 </html>
