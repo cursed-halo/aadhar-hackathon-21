@@ -111,3 +111,10 @@ input[type="submit"]:hover{
 .signup_link a:hover{
   text-decoration: underline;
 }
+
+/*Header related rules*/
+.header {
+  color: black;
+  border: #2691d9 solid 2px;
+  background-color: white;
+}
