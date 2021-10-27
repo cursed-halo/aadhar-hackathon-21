@@ -1,42 +1,120 @@
 <!DOCTYPE html>
 
 <html lang="en" dir="ltr">
-
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Aadhar hackathon</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-
+    <nav
+      class="navbar navbar-expand-lg navbar-light"
+      style="background-color: #619dca; font-size: 1.2rem"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Aadhar Update</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item me-auto">
+              <a class="nav-link active" aria-current="page" href="about.html"
+                >About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="info.html">Info</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="help.html">Help</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--End of navigation and links-->
     <div class="center">
       <h1>Fill The Donor's Details</h1>
       <form method="post">
-        
+        <div class="txt_field">
+          <input type="text" />
+          <span></span>
+          <label>Phone Number</label>
+        </div>
 
         <div class="txt_field">
-            <input type="text">
-            <span></span>
-            <label>Phone Number</label>
-          </div>
+          <input type="text" />
+          <span></span>
+          <label>Aadhar Number</label>
+        </div>
 
-          <div class="txt_field">
-            <input type="text">
-            <span></span>
-            <label>Aadhar Number</label>
-          </div>
-
-        
-        <input type="submit" value="Request From Donor">
+        <input type="submit" value="Request From Donor" />
         <div class="signup_link">
-
-            You can choose any one of the above option
-           
-          </div>
-
+          You can choose any one of the above option
+        </div>
       </form>
     </div>
-
+    <!--FOOTER-->
+    <footer class="w-100 py-4 flex-shrink-0">
+      <div class="container py-4">
+        <div class="row gy-4 gx-5">
+          <div class="col-lg-4 col-md-6">
+            <h5 class="h1 text-white">Aadhaar</h5>
+            <p class="small">
+              This portal was made by team "No Deadlines" to change AADHAR CARD
+              address quickly and efficiently
+            </p>
+            <p class="small mb-0">
+              &copy; Copyrights. All rights reserved.Team "No Deadlines"
+              <a class="text-primary" href="#"></a>
+            </p>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5 class="text-white mb-3">Quick links</h5>
+            <ul class="list-unstyled">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="info.html">Info</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-5 col-md-6">
+            <h5 class="text-white mb-3">Write to Us</h5>
+            <p class="small"></p>
+            <form action="#">
+              <div class="input-group mb-3">
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Your review"
+                  aria-label="Recipient's username"
+                  aria-describedby="button-addon2"
+                />
+                <button
+                  class="btn btn-primary"
+                  id="button-addon2"
+                  type="button"
+                >
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
