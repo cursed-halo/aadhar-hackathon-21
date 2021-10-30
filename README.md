@@ -1,14 +1,7 @@
-# aadhar-hackathon-21
-aadhar hackathon repo
-
-
-# things to do 
-1. splash screen
-2. signup 
-3. signin
-4. otp
-5.  about
-6. contact
-7. help (misc)
-8. profile (landlord)
-9. profile (tenant)
+# Who are we?
+We are a team of four from NSEC, Kolkata
+You can find more about us on the contributors menu to the right
+# What is this?
+This is the repo containing our solution to the UIDAI Hackathon 2021 problem statement 2
+# How is this structured?
+The webapp folder contains the webapp(in development) while a potential clone for a mobile app is planned
