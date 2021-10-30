@@ -229,12 +229,12 @@ a:focus {
 }
 
 .form-control {
-  background: #619dca;
+  background: #eee;
   border-color: #050000;
 }
 
 .form-control:focus {
-  background: #619dca;
+  background: #a5aec0;
 }
 
 footer {
