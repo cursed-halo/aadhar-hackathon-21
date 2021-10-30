@@ -79,7 +79,7 @@
                       <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
                         style="background-color: #619dca;" , onclick="ekyc()">Submit</button>
                     </div>
-                  </form>
+                  </form>x
                 </div>
               </div>
             </div>
@@ -206,6 +206,10 @@
         console.log(json);
         txn = json.txnId;
 
+        if(json.status.localeCompare("Failure")==0)
+        {
+        alert(json.message);
+      }
       });
     };
 
@@ -230,9 +234,18 @@
 
       }).then(function (response) { return response.json(); }).then(function (json) {
         console.log(json.status);
-        parser = new DOMParser();
-        xmlDoc = parser.parseFromString(json.eKycString, "text/xml");
+        if(json.status.localeCompare("N")==0)
+        {
+          
+          alert("Wrong otp entered");
+        }else
+        {
+          
 
+// Simulate an HTTP redirect:
+            
+        }
+        
 
 
 
@@ -246,6 +259,11 @@
 
       });
 
+    }
+
+    function redirect()
+    {
+      window.location.replace("index.html");
     }
   </script>
   </script>
