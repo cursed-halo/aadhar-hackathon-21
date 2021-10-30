@@ -10,6 +10,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
   <body>
@@ -53,33 +54,40 @@
                     <div class="form-outline mb-4">
                       <input type="number" class="form-control" id="aadharNo" aria-describedby="aadharNoHelp" required
                         placeholder="Enter Your Aadhar number">
-                      <div id="aadharHelp" class="form-text text-muted">We'll never share your aadhar number with anyone
-                        else.</div>
+                      <div id="aadharHelp" class="form-text text-muted"><i>We'll never share your aadhar number with anyone
+                        else.</i></div>
                     </div>
-                    <span class="captchaLoader text-center" style="text-align: right;">*IMAGE FROM CAPTCHA GOES
-                      HERE*</span><br>
                     <div class="form-outline mb-4">
                       <div id="captchaHere">
                       </div>
-                      <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
-                        style="margin-left: 435px;" , onclick="captcha()">Refresh</button>
-                      <input type="text" class="form-control" id="captchaCode" required
+                      
+                        <div class="row">
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" id="captchaCode" required
                         placeholder="Enter The Special Code You See Above">
-                    </div>
-                    <div class="mb-3">
-                      <label class="fs-4" for="aadharNo" class="form-label">Enter OTP</label>
-                      <input type="number" class="form-control" id="aadharOtp" aria-describedby="aadharOtp" required
-                        placeholder="Enter OTP Here">
-                        <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
-                        style="margin-left: 435px;" , onclick="Otp()">Generate OTP</button>
-                      <div id="aadharOtp" class="form-text text-muted">Do Not Share This OTP - Valid For 10 Minutes
+                        </div>
+                        <div class="col-sm-2">
+                          <button type="button" class="btn gradient-custom-4 text-body"
+                        onclick="captcha()"><i style="font-size:15px" class="fa me-auto">&#xf021;</i></button>
                       </div>
                     </div>
+                    <br>
+                    <div class="row">
+                     <div class="col-sm-8">
+                        <input type="number" class="form-control " id="aadharOtp" aria-describedby="aadharOtp" required placeholder="Enter OTP Here">
+                      </div>
+                      <div class="col-sm-4">
+                          <button type="button" class="btn btn-block gradient-custom-4 text-muted text-body border border-1" , onclick="Otp()">Generate OTP</button>
+                      </div>
+                    </div>
+                      <div id="aadharOtp" class="form-text" style="color: red; text-align: center;">Do Not Share This OTP - Valid For 10 Minutes
+                      </div><br>
+                    
                     <div class="d-flex justify-content-center">
                       <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
                         style="background-color: #619dca;" , onclick="ekyc()">Submit</button>
                     </div>
-                  </form>x
+                  </form>
                 </div>
               </div>
             </div>
@@ -206,10 +214,6 @@
         console.log(json);
         txn = json.txnId;
 
-        if(json.status.localeCompare("Failure")==0)
-        {
-        alert(json.message);
-      }
       });
     };
 
@@ -234,18 +238,9 @@
 
       }).then(function (response) { return response.json(); }).then(function (json) {
         console.log(json.status);
-        if(json.status.localeCompare("N")==0)
-        {
-          
-          alert("Wrong otp entered");
-        }else
-        {
-          
+        parser = new DOMParser();
+        xmlDoc = parser.parseFromString(json.eKycString, "text/xml");
 
-// Simulate an HTTP redirect:
-            
-        }
-        
 
 
 
@@ -259,11 +254,6 @@
 
       });
 
-    }
-
-    function redirect()
-    {
-      window.location.replace("index.html");
     }
   </script>
   </script>
