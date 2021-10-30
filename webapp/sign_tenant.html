@@ -41,40 +41,55 @@
     </nav>
     <!--End of navigation and links-->
     <!--sign in form-->
-    
     <section class="vh-100 bg-image p-5">
-  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-    <div class="container h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-          <div class="card" style="border-radius: 15px;">
-            <div class="card-body p-5">
-              <h2 class="text-uppercase text-center mb-5">Aadhar Number</h2>
-
-              <form>
-                <div class="form-outline mb-4">
-                  <input type="number" class="form-control" id="aadharNo" aria-describedby="aadharNoHelp" required placeholder="Enter Your Aadhar number">
-                  <div id="aadharHelp" class="form-text text-muted">We'll never share your aadhar number with anyone else.</div>
+      <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+              <div class="card" style="border-radius: 15px;">
+                <div class="card-body p-5">
+                  <h2 class="text-uppercase text-center mb-5">Aadhar Number</h2>
+                  <form>
+                    <div class="form-outline mb-4">
+                      <input type="number" class="form-control" id="aadharNo" aria-describedby="aadharNoHelp" required
+                        placeholder="Enter Your Aadhar number">
+                      <div id="aadharHelp" class="form-text text-muted">We'll never share your aadhar number with anyone
+                        else.</div>
+                    </div>
+                    <span class="captchaLoader text-center" style="text-align: right;">*IMAGE FROM CAPTCHA GOES
+                      HERE*</span><br>
+                    <div class="form-outline mb-4">
+                      <div id="captchaHere">
+                      </div>
+                      <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                        style="margin-left: 435px;" , onclick="captcha()">Refresh</button>
+                      <input type="text" class="form-control" id="captchaCode" required
+                        placeholder="Enter The Special Code You See Above">
+                    </div>
+                    <div class="mb-3">
+                      <label class="fs-4" for="aadharNo" class="form-label">Enter OTP</label>
+                      <input type="number" class="form-control" id="aadharOtp" aria-describedby="aadharOtp" required
+                        placeholder="Enter OTP Here">
+                        <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                        style="margin-left: 435px;" , onclick="Otp()">Generate OTP</button>
+                      <div id="aadharOtp" class="form-text text-muted">Do Not Share This OTP - Valid For 10 Minutes
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                      <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                        style="background-color: #619dca;" , onclick="ekyc()">Submit</button>
+                    </div>
+                  </form>
                 </div>
-               <span class="captchaLoader text-center" style="text-align: center;">*IMAGE FROM CAPTCHA GOES HERE*</span><br>
-                <div class="form-outline mb-4">
-                  <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" style="background-color: #619dca;", onclick="captcha()">captcha</button>
-                  <input type="text" class="form-control" id="captchaCode" required placeholder="Enter The Special Code You See Above">              
-                </div>
-                <div class="d-flex justify-content-center">
-                  <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" style="background-color: #619dca;", onclick="ekyc()">Submit</button>
-                </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
     <!--End of Form-->
     <!-- FOOTER -->
-    <footer class="w-100 py-4 flex-shrink-0">
+    <footer class="w-100 py-4 flex-shrink-0" style="background-color: #619dca; font-size: 1.2rem;">
       <div class="container py-4">
         <div class="row gy-4 gx-5">
           <div class="col-lg-4 col-md-6">
@@ -118,117 +133,121 @@
   <script>
     var txnid;
     var txn;
-    async function captcha()
-    {
-    
-      
- var captcha;
-
-let url="https://stage1.uidai.gov.in/unifiedAppAuthService/api/v2/get/captcha";
-var response= await fetch(url,{method:'POST',headers:{ 
-  "Content-Type": 'application/json',
-  
-
-},
-
-body:JSON.stringify({
- "langCode": "en",
- "captchaLength": "3",
- "captchaType": "2"}),
+    async function captcha() {
 
 
-}).then(function(response){return response.json();}).then(function(json){
-  captcha=json.captchaBase64String;
-  txnid=json.captchaTxnId;
+      var captcha;
 
-});
-
-
-
-var image = new Image();
-
-image.src = 'data:image/png;base64,'+captcha;
-
-document.body.appendChild(image);
- };
-
- function uuidv4() 
- {
-  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
-    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
-  );
-  
-};
+      let url = "https://stage1.uidai.gov.in/unifiedAppAuthService/api/v2/get/captcha";
+      var response = await fetch(url, {
+        method: 'POST', headers: {
+          "Content-Type": 'application/json',
 
 
-  async function Otp()
-    {
-      var url="https://stage1.uidai.gov.in/unifiedAppAuthService/api/v2/generate/aadhaar/otp"
-      
-      var uid4=uuidv4();
-      var response= await fetch(url,{method:'POST',headers:{ 
-  "Content-Type": 'application/json',
-  "x-request-id": uid4,
-"appid": "MYAADHAAR",
-"Accept-Language":'en_in',
-  
+        },
 
-},
-
-body:JSON.stringify({
- "uidNumber":document.getElementById("aadno").value ,
- "captchaTxnId": txnid,
- "captchaValue": document.getElementById("cap").value,
- "transactionId": "MYAADHAAR:"+uid4,
-})
-
-}).then(function(response){return response.json();}).then(function(json){
-  console.log(json);
-  txn=json.txnId;
-
-});
-};
-
-async function ekyc()
-{
-
-  var url="https://stage1.uidai.gov.in/onlineekyc/getEkyc/";
-  var response= await fetch(url,{method:'POST',headers:{ 
-  "Content-Type": 'application/json',
-  
-  
-
-},
-
-body:JSON.stringify({
-  
- "uid": document.getElementById("aadno").value,
- "txnId": txn,
- "otp": document.getElementById("otpfield").value,
-
-})
-
-}).then(function(response){return response.json();}).then(function(json){
-  console.log(json.status);
-  parser = new DOMParser();
-  xmlDoc = parser.parseFromString(json.eKycString,"text/xml");
-   
-  
-  
- 
-  //var s=new XMLSerializer().serializeToString(json.eKycString.node());
-  
- var s= json.eKycString.search("country");
- var s2=json.eKycString.search("<LData");
-var sliced=json.eKycString.substring(s,s2-2);
-console.log(sliced);
+        body: JSON.stringify({
+          "langCode": "en",
+          "captchaLength": "3",
+          "captchaType": "2"
+        }),
 
 
-});
+      }).then(function (response) { return response.json(); }).then(function (json) {
+        captcha = json.captchaBase64String;
+        txnid = json.captchaTxnId;
 
-}
+      });
+
+
+
+      var image = new Image();
+
+      image.src = 'data:image/png;base64,' + captcha;
+
+      //var imageC = document.getElementById(image).src;
+      //document.getElementById("captchaHere").innerHTML = imageC;
+
+      var div = document.getElementById("captchaHere");
+      div.appendChild(image);
+      //block.setAttribute("style", "text-align:center");
+    };
+
+    function uuidv4() {
+      return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+        (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+      );
+
+    };
+
+
+    async function Otp() {
+      var url = "https://stage1.uidai.gov.in/unifiedAppAuthService/api/v2/generate/aadhaar/otp"
+
+      var uid4 = uuidv4();
+      var response = await fetch(url, {
+        method: 'POST', headers: {
+          "Content-Type": 'application/json',
+          "x-request-id": uid4,
+          "appid": "MYAADHAAR",
+          "Accept-Language": 'en_in',
+
+
+        },
+
+        body: JSON.stringify({
+          "uidNumber": document.getElementById("aadharNo").value,
+          "captchaTxnId": txnid,
+          "captchaValue": document.getElementById("captchaCode").value,
+          "transactionId": "MYAADHAAR:" + uid4,
+        })
+
+      }).then(function (response) { return response.json(); }).then(function (json) {
+        console.log(json);
+        txn = json.txnId;
+
+      });
+    };
+
+    async function ekyc() {
+
+      var url = "https://stage1.uidai.gov.in/onlineekyc/getEkyc/";
+      var response = await fetch(url, {
+        method: 'POST', headers: {
+          "Content-Type": 'application/json',
+
+
+
+        },
+
+        body: JSON.stringify({
+
+          "uid": document.getElementById("aadharNo").value,
+          "txnId": txn,
+          "otp": document.getElementById("aadharOtp").value,
+
+        })
+
+      }).then(function (response) { return response.json(); }).then(function (json) {
+        console.log(json.status);
+        parser = new DOMParser();
+        xmlDoc = parser.parseFromString(json.eKycString, "text/xml");
+
+
+
+
+        //var s=new XMLSerializer().serializeToString(json.eKycString.node());
+
+        var s = json.eKycString.search("country");
+        var s2 = json.eKycString.search("<LData");
+        var sliced = json.eKycString.substring(s, s2 - 2);
+        console.log(sliced);
+
+
+      });
+
+    }
   </script>
-
   </script>
 
 </html>
