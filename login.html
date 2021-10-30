@@ -25,10 +25,9 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item  me-auto">
-        
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="info.html">Info</a>
+              <a class="nav-link" href="info.html">Info</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="Contact.html">Contact</a>
@@ -41,27 +40,25 @@
       </div>
     </nav>
     <!--End of navigation and links-->
-
-
-    <body style="text-align: center;">
-      <div class="center">
-        <h1>Login</h1><br>
-        <form method="post">
-          <div class="txt_field">
-            <input type="text" required placeholder="enter your Aadhar number"/><br>
-            <span></span><br>
-            
-          </div>
-          <input type="submit" value="Login" /><br>
-          <div class="signup_link">
-            Do You Want To Go to the previous menu? <a href="index.html">Click Here</a>
-          </div>
-        </form>
+    <!--sign in form-->
+    <br><br><br><br><br><br>
+    <form class="container col-4 text-center align-middle border border-1 border-dark">
+      <div class="mb-3">
+        <label class="fs-4" for="aadharNo" class="form-label">Aadhar Number</label>
+        <hr>
+        <input type="number" class="form-control" id="aadharNo" aria-describedby="aadharNoHelp" required placeholder="Enter Your Phone Number (Linked With Aadhar)">
+        <div id="aadharHelp" class="form-text text-muted">We'll never share your aadhar number with anyone else.</div>
       </div>
-    </body>
+      <div class="mb-3">
+        <span class="captchaLoader">*IMAGE FROM CAPTCHA GOES HERE*</span>
+        <br>
+        <label class="fs-4" for="captcha" class="form-label">Enter Code From Picture</label>
+        <hr>
+        <input type="text" class="form-control" id="captchaCode" required placeholder="Enter The Special Code You See Above">
+      </div>
+      <button type="submit" class="btn btn-outline-primary btn-lg">Submit</button>
 
-
-
+    </form>
     <!-- FOOTER -->
     <footer class="w-100 py-4 flex-shrink-0">
       <div class="container py-4">
@@ -106,4 +103,3 @@
   </body>
 
 </html>
-
