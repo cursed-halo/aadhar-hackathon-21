@@ -263,6 +263,22 @@
         var s2 = json.eKycString.search("<LData");
         var sliced = json.eKycString.substring(s, s2 - 2);
         console.log(sliced);
+        const words = sliced. split(' ');
+        let parts=[]
+        for(var i=0;i<words.length;i++)
+        {
+         parts[i]=words[i].split("=")[1];
+        }
+        console.log(parts[0])
+        var country=parts[0]
+        var district=parts[1]
+        var house=parts[2]
+        var lane=parts[3]
+        var loc=parts[4]
+        var pin=parts[5]
+        var state=parts[6]
+        var street=part[7]
+        var vtc=part[8]
 
 
       });

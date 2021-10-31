@@ -174,6 +174,8 @@
         name: document.getElementById("tenName").value,
         date: date,
         time: time,
+        phone: document.getElementById("landPhnNo").value,
+        status:"pending"
       })
         .then((docRef) => {
           console.log("Document written with ID: ", docRef.id);
@@ -191,15 +193,20 @@
     }
 
     function statuscheck() {
-      var s = db.collection('landlord').where('phone', '==', document.getElementById("landPhnNo2").value);
+      var flag=0;
+      var s = db.collection('tenants').where('phone', '==', document.getElementById("landPhnNo2").value);
       s.get().then((querySnapshot) => {
         console.log(querySnapshot)
         querySnapshot.forEach((doc) => {
-
-
+            flag=1;
+            console.log(doc.data()["status"]);
           document.getElementById("statusState").innerHTML = doc.data()["status"];
         });
       });
+      if(flag==0)
+      {
+        document.getElementById("statusState").innerHTML = "You have not requested for any such no."
+      }
     }
 
   </script>
