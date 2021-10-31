@@ -59,26 +59,19 @@
                     </div>
                     <div class="d-flex justify-content-center">
                       <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
-                        style="background-color: #619dca;">Request</button>
+                        style="background-color: #619dca;" onclick="add()">Request</button>
                     </div>
                   </form>
                 </div>
-<<<<<<< HEAD
-                <div class="d-flex justify-content-center">
-                  <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" style="background-color: #619dca;", onclick="add()">Submit</button>
-                </div>
-              </form>
-=======
               </div>
->>>>>>> 0735e40dffda03db5b0819f3949a5740368cf98f
             </div>
           </div>
         </div>
         <div class="col-md-6">
           <h1 class="display-4 px-4 text-center">Request Status</h1>
           <hr>
-          <p class="fs-4 px-4 text-center">Status Of Your Request - <span id="reqStatus"
-              class="text-danger">Pending Approval</span></p>
+          <p class="fs-4 px-4 text-center">Status Of Your Request - <span id="reqStatus" class="text-danger">Pending
+              Approval</span></p>
         </div>
       </div>
     </section>
@@ -124,81 +117,70 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"></script>
-  </body>
-<<<<<<< HEAD
-=======
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"></script>
   </body>
->>>>>>> 0735e40dffda03db5b0819f3949a5740368cf98f
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
-    </body>
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-          apiKey: "AIzaSyBYbLPHiESd8zXN34Xx8IUy0YnMKulorJM",
-          authDomain: "aadhar2web.firebaseapp.com",
-          databaseURL: "https://aadhar2web-default-rtdb.firebaseio.com",
-          projectId: "aadhar2web",
-          storageBucket: "aadhar2web.appspot.com",
-          messagingSenderId: "281088834445",
-          appId: "1:281088834445:web:bfff3668a134efa68f9bc4"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-      </script>
-      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-      <script>
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
 
-            firebase.initializeApp({
-            apiKey: "AIzaSyBYbLPHiESd8zXN34Xx8IUy0YnMKulorJM",
-            authDomain: "aadhar2web.firebaseapp.com",
-            projectId: "aadhar2web",
-            });
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBYbLPHiESd8zXN34Xx8IUy0YnMKulorJM",
+      authDomain: "aadhar2web.firebaseapp.com",
+      databaseURL: "https://aadhar2web-default-rtdb.firebaseio.com",
+      projectId: "aadhar2web",
+      storageBucket: "aadhar2web.appspot.com",
+      messagingSenderId: "281088834445",
+      appId: "1:281088834445:web:bfff3668a134efa68f9bc4"
+    };
 
-            var db = firebase.firestore();
-            // Add a second document with a generated ID.
-            function add()
-            {
-              var today=new Date();
-              var date=today.getFullYear()+"-"+today.getMonth()+"-"+today.getDate()
-              var time=today.getHours()+":"+today.getMinutes()+":"+today.getSeconds();
-db.collection("tenants").add({
-    name: "Alan",
-    date:date,
-    time:time,
-})
-.then((docRef) => {
-    console.log("Document written with ID: ", docRef.id);
-})
-db.collection("landlord").add({
-    phone:9038290002,
-    status:"pending",
-    date:date,
-    time:time,
-})
-.then((docRef) => {
-    console.log("Document written with ID: ", docRef.id);
-})
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script>
 
-<<<<<<< HEAD
+    firebase.initializeApp({
+      apiKey: "AIzaSyBYbLPHiESd8zXN34Xx8IUy0YnMKulorJM",
+      authDomain: "aadhar2web.firebaseapp.com",
+      projectId: "aadhar2web",
+    });
 
-            }
-=======
-var v=;
-}
->>>>>>> 0735e40dffda03db5b0819f3949a5740368cf98f
+    var db = firebase.firestore();
+    // Add a second document with a generated ID.
+    function add() {
+      var today = new Date();
+      var date = today.getFullYear() + "-" + today.getMonth() + "-" + today.getDate()
+      var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      db.collection("tenants").add({
+        name: "Alan",
+        date: date,
+        time: time,
+      })
+        .then((docRef) => {
+          console.log("Document written with ID: ", docRef.id);
+        })
+      db.collection("landlord").add({
+        phone: 9038290002,
+        status: "pending",
+        date: date,
+        time: time,
+      })
+        .then((docRef) => {
+          console.log("Document written with ID: ", docRef.id);
+        })
 
-</script>
+    }
+
+  </script>
+  </body>
 
 </html>
