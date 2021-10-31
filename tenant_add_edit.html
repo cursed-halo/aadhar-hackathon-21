@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Aadhar Update Portal</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    </head>
+
+    <body>
+        <!--Navigation and links-->
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #619dca; font-size: 1.2rem; ">
+            <div class="container-fluid">
+                <a class="navbar-brand fs-1 text-white active" href="index.html">Aadhar <span
+                        class="text-success bold ">Update</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item  me-auto">
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="info.html">Info</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="help.html">Help</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!--End of navigation and links-->
+        <div class="container container-fluid col-4">
+            <hr>
+            <h1 display="text-center">Update Address Details</h1>
+            <hr>
+            <p class="fs-3 fw-bold text-success">Country : <span class="fs-2 text-dark" id="country">India</span></p>
+            <p class="fs-3 fw-bold text-success">State : <span class="fs-2 text-dark" id="state">State</span></p>
+            <p class="fs-3 fw-bold text-success">District : <span class="fs-2 text-dark" id="district">District</span>
+            </p>
+            <p class="fs-3 fw-bold text-success">LOC : <span class="fs-2 text-dark" id="loc">LOC Field</span></p>
+            <p class="fs-3 fw-bold text-success">Pin Code : <span class="fs-2 text-dark" id="pincode">000000</span></p>
+            <p class="fs-3 fw-bold text-success">Street : <span class="fs-2 text-dark" id="street">Street</span></p>
+            <p class="fs-3 fw-bold text-success">Building / House Name : <span class="fs-2 text-dark"
+                    id="buildingname">Building Name</span></p>
+            <hr>
+            <form>
+                <div class="mb-3 fs-3">
+                    <label for="houN" class="form-label">Apartment / House Number</label>
+                    <input type="text" class="form-control" id="houN">
+                </div>
+                <button type="submit" class="btn btn-primary" onclick="houseAdd()">Submit</button>
+            </form>
+        </div>
+        <div class="container container-fluid col-12  border border-5">
+            <br>
+            <p class="display-6 text-center"> Updated Address </p>
+            <hr>
+            <!--
+            <p id="houN">House</p>
+            <p id="street"></p>
+            <p id="loc"></p>
+            <p id="buildingname"></p>
+            <p id="district"></p>
+            <p id="state"></p>
+            <p id="country"></p>
+            <p id="pincode">Pin</p>
+-->
+            <p class="fs-3 fw-bold text-success">Country : <span class="fs-2 text-dark" id="country">Placeholder</span></p>
+            <p class="fs-3 fw-bold text-success">State : <span class="fs-2 text-dark" id="state">State</span></p>
+            <p class="fs-3 fw-bold text-success">District : <span class="fs-2 text-dark" id="district">District</span>
+            </p>
+            <p class="fs-3 fw-bold text-success">LOC : <span class="fs-2 text-dark" id="loc">LOC Field</span></p>
+            <p class="fs-3 fw-bold text-success">Pin Code : <span class="fs-2 text-dark" id="pincode">000000</span></p>
+            <p class="fs-3 fw-bold text-success">Street : <span class="fs-2 text-dark" id="street">Street</span></p>
+            <p class="fs-3 fw-bold text-success">Building / House Name : <span class="fs-2 text-dark"
+                    id="houN">Building Name</span></p>
+        </div>
+        <!-- FOOTER -->
+        <footer class="w-100 py-4 flex-shrink-0">
+            <div class="container py-4">
+                <div class="row gy-4 gx-5">
+                    <div class="col-lg-4 col-md-6">
+                        <h5 class="h1 text-white">Aadhaar</h5>
+                        <p class="small ">This portal was made by team "No Deadlines" to change AADHAR CARD address
+                            quickly and efficiently</p>
+                        <p class="small  mb-0">&copy; Copyrights. All rights reserved.Team "No Deadlines" <a
+                                class="text-primary" href="#"></a></p>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-3">Quick links</h5>
+                        <ul class="list-unstyled ">
+                            <li><a href="index.html">Home Page</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="info.html">Information</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-5 col-md-6">
+                        <h5 class="text-white mb-3">Write to Us</h5>
+                        <p class="small "></p>
+                        <form action="#">
+                            <div class="input-group mb-3">
+                                <input class="form-control" type="text" placeholder="Your review"
+                                    aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <button class="btn btn-primary" id="button-addon2" type="button"><i
+                                        class="fas fa-paper-plane"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        </div>
+        <!--End of-->
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    </body>
+    <script type="module">
+        var lPhn = localStorage.getItem("phn")
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBYbLPHiESd8zXN34Xx8IUy0YnMKulorJM",
+            authDomain: "aadhar2web.firebaseapp.com",
+            databaseURL: "https://aadhar2web-default-rtdb.firebaseio.com",
+            projectId: "aadhar2web",
+            storageBucket: "aadhar2web.appspot.com",
+            messagingSenderId: "281088834445",
+            appId: "1:281088834445:web:bfff3668a134efa68f9bc4",
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script>
+        firebase.initializeApp({
+            apiKey: "AIzaSyBYbLPHiESd8zXN34Xx8IUy0YnMKulorJM",
+            authDomain: "aadhar2web.firebaseapp.com",
+            projectId: "aadhar2web",
+        });
+
+        var db = firebase.firestore();
+        // Add a second document with a generated ID.
+        var museums = db.collection('address').where('phone', '==', '900');
+        museums.get().then((querySnapshot) => {
+            querySnapshot.forEach((doc => {
+                console.log(doc.data());
+                document.getElementById("country").innerHTML = doc.data()['country']
+                document.getElementById("district").innerHTML = doc.data()['district']
+                document.getElementById("state").innerHTML = doc.data()['state']
+                document.getElementById("loc").innerHTML = doc.data()['loc']
+                document.getElementById("street").innerHTML = doc.data()['street']
+                document.getElementById("pincode").innerHTML = doc.data()['pin']
+                document.getElementById("buildingname").innerHTML = doc.data()['house']
+            })
+            )
+        })
+        //document.getElementById("country").innerHTML = doc.data()['country'] 
+        //document.getElementById("country").innerHTML = doc.data()['country'] 
+
+        function houseAdd() {
+        var museums = db.collection('address').where('phone', '==', '900');
+        museums.get().then((querySnapshot) => {
+            querySnapshot.forEach((doc => {
+                console.log(doc.data());
+                document.getElementById("country").innerHTML = doc.data()['country']
+                document.getElementById("district").innerHTML = doc.data()['district']
+                document.getElementById("state").innerHTML = doc.data()['state']
+                document.getElementById("loc").innerHTML = doc.data()['loc']
+                document.getElementById("street").innerHTML = doc.data()['street']
+                document.getElementById("pincode").innerHTML = doc.data()['pin']
+                document.getElementById("buildingname").innerHTML = document.getElementById("houN")
+            })
+            )
+        })
+
+
+        localStorage.setItem("country", document.getElementById("country"))
+        localStorage.setItem("district", document.getElementById("district"))
+        localStorage.setItem("state", document.getElementById("state"))
+        localStorage.setItem("loc", document.getElementById("loc"))
+        localStorage.setItem("street", document.getElementById("street"))
+        localStorage.setItem("pincode", document.getElementById("pincode"))
+        localStorage.setItem("buildingname", document.getElementById("buildingname"))
+        localStorage.setItem("houN", document.getElementById("houN"))
+
+        var a = localStorage.getItem("country")
+        var b = localStorage.getItem("district")
+        var c = localStorage.getItem("state")
+        var d = localStorage.getItem("loc")
+        var e = localStorage.getItem("street")
+        var f = localStorage.getItem("pincode")
+        var g = localStorage.getItem("buildingname")
+        var h = localStorage.getItem("houN")
+
+        document.getElementById("country").innerHTML = a
+        document.getElementById("district").innerHTML = b
+        document.getElementById("state").innerHTML = c
+        document.getElementById("loc").innerHTML = d
+        document.getElementById("street").innerHTML = e
+        document.getElementById("pincode").innerHTML = f
+        document.getElementById("buildingname").innerHTML = g
+        document.getElementById("houN").innerHTML = h
+
+        console.log(a);
+    }
+    </script>
+
+</html>
