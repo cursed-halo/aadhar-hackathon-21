@@ -139,6 +139,7 @@
       crossorigin="anonymous"></script>
   </body>
   <script>
+    var k=0;
     var txnid;
     var txn;
     async function captcha() {
@@ -175,9 +176,21 @@
 
       //var imageC = document.getElementById(image).src;
       //document.getElementById("captchaHere").innerHTML = imageC;
-
+      
+      if(k==0)
+      {
       var div = document.getElementById("captchaHere");
       div.appendChild(image);
+      k=1;
+      }
+      else
+      {
+       document.getElementById("captchaHere").innerHTML="";
+      
+      var div = document.getElementById("captchaHere");
+      div.appendChild(image);
+      }
+
       //block.setAttribute("style", "text-align:center");
     };
 
