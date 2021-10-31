@@ -63,14 +63,7 @@
                     </div>
                   </form>
                 </div>
-<<<<<<< HEAD
-                <div class="d-flex justify-content-center">
-                  <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" style="background-color: #619dca;", onclick="add()">Submit</button>
-                </div>
-              </form>
-=======
               </div>
->>>>>>> 0735e40dffda03db5b0819f3949a5740368cf98f
             </div>
           </div>
         </div>
@@ -125,13 +118,10 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"></script>
   </body>
-<<<<<<< HEAD
-=======
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"></script>
   </body>
->>>>>>> 0735e40dffda03db5b0819f3949a5740368cf98f
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
@@ -190,14 +180,17 @@ db.collection("landlord").add({
 .then((docRef) => {
     console.log("Document written with ID: ", docRef.id);
 })
-
-<<<<<<< HEAD
-
-            }
-=======
-var v=;
 }
->>>>>>> 0735e40dffda03db5b0819f3949a5740368cf98f
+function checkStatus()
+{
+  var s = db.collectionGroup('landlords').where('phone', '==', document.getElementById("landPhnNo").value);
+s.get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        console.log(doc.id, ' => ', doc.data()["status"]);
+    });
+});
+}
+
 
 </script>
 
