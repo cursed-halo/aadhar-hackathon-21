@@ -7,7 +7,7 @@ const port = 3000;
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/html');
-  fs.readFile('sign_tenant.html',function(error,data)
+  fs.readFile('sign_landlord.html',function(error,data)
   {
       if(error)
       {

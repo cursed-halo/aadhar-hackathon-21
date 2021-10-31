@@ -40,37 +40,66 @@
       </div>
     </nav>
     <!--End of navigation and links-->
-     <!--sign in form-->
-    
+    <!--sign in form-->
     <section class="vh-100 bg-image p-5">
-  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-    <div class="container h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-          <div class="card" style="border-radius: 15px;">
-            <div class="card-body p-5">
-              <h2 class="text-uppercase text-center mb-5">Aadhar Number</h2>
-
-              <form>
-                <div class="form-outline mb-4">
-                  <input type="number" class="form-control" id="aadharNo" aria-describedby="aadharNoHelp" required placeholder="Enter Your Aadhar no.">
-                  <div id="aadharHelp" class="form-text text-muted">We'll never share your aadhar number with anyone else.</div>
+      <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+              <div class="card" style="border-radius: 15px;">
+                <div class="card-body p-5">
+                  <h2 class="text-uppercase text-center mb-5">Sign In - Landlord</h2>
+                  <form>
+                    <div class="form-outline mb-4">
+                      <input type="number" class="form-control" id="aadharNo" required
+                        placeholder="Enter Your Aadhar number">
+                      <div id="aadharHelp" class="form-text text-muted"><i>We'll never share your aadhar number with anyone
+                        else.</i></div>
+                    </div>
+                    <div class="form-outline mb-4">
+                      <input type="number" class="form-control" id="phnNo" required
+                        placeholder="Enter Your Phone Number">
+                      <div id="phnHelp" class="form-text text-muted"><i>We'll never share your phone with anyone
+                        else.</i></div>
+                    </div>
+                    <div class="form-outline mb-4">
+                      <div id="captchaHere">
+                      </div>
+                      
+                        <div class="row">
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" id="captchaCode" required
+                        placeholder="Enter The Special Code You See Above">
+                        </div>
+                        <div class="col-sm-2">
+                          <button type="button" class="btn gradient-custom-4 text-body"
+                        onclick="captcha()"><i style="font-size:15px" class="fa me-auto">&#xf021;</i></button>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                     <div class="col-sm-8">
+                        <input type="number" class="form-control " id="aadharOtp" aria-describedby="aadharOtp" required placeholder="Enter OTP Here">
+                      </div>
+                      <div class="col-sm-4">
+                          <button type="button" class="btn btn-block gradient-custom-4 text-muted text-body border border-1" , onclick="Otp()">Generate OTP</button>
+                      </div>
+                    </div>
+                      <div id="aadharOtp" class="form-text" style="color: red; text-align: center;">Do Not Share This OTP - Valid For 10 Minutes
+                      </div><br>
+                    
+                    <div class="d-flex justify-content-center">
+                      <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                        style="background-color: #619dca;" , onclick="ekyc()">Submit</button>
+                    </div>
+                  </form>
                 </div>
-               <span class="captchaLoader text-center" style="text-align: center;">*IMAGE FROM CAPTCHA GOES HERE*</span><br>
-                <div class="form-outline mb-4">
-                  <input type="text" class="form-control" id="captchaCode" required placeholder="Enter The Special Code You See Above">              
-                </div>
-                <div class="d-flex justify-content-center">
-                  <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" style="background-color: #619dca;">Submit</button>
-                </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
     <!--End of Form-->
     <!-- FOOTER -->
     <footer class="w-100 py-4 flex-shrink-0">
@@ -114,5 +143,165 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"></script>
   </body>
+  <script>
+
+    var k = 0;
+    var txnid;
+    var txn;
+    async function captcha() {
+
+
+      var captcha;
+
+      let url = "https://stage1.uidai.gov.in/unifiedAppAuthService/api/v2/get/captcha";
+      var response = await fetch(url, {
+        method: 'POST', headers: {
+          "Content-Type": 'application/json',
+
+
+        },
+
+        body: JSON.stringify({
+          "langCode": "en",
+          "captchaLength": "3",
+          "captchaType": "2"
+        }),
+
+
+      }).then(function (response) { return response.json(); }).then(function (json) {
+        captcha = json.captchaBase64String;
+        txnid = json.captchaTxnId;
+
+      });
+
+
+
+      var image = new Image();
+
+      image.src = 'data:image/png;base64,' + captcha;
+
+      //var imageC = document.getElementById(image).src;
+      //document.getElementById("captchaHere").innerHTML = imageC;
+
+      if (k == 0) {
+        var div = document.getElementById("captchaHere");
+        div.appendChild(image);
+        k = 1;
+      }
+      else {
+        document.getElementById("captchaHere").innerHTML = "";
+
+        var div = document.getElementById("captchaHere");
+        div.appendChild(image);
+      }
+
+      //block.setAttribute("style", "text-align:center");
+    };
+
+    function uuidv4() {
+      return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+        (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+      );
+
+    };
+
+
+    async function Otp() {
+      var url = "https://stage1.uidai.gov.in/unifiedAppAuthService/api/v2/generate/aadhaar/otp"
+
+      var uid4 = uuidv4();
+      var response = await fetch(url, {
+        method: 'POST', headers: {
+          "Content-Type": 'application/json',
+          "x-request-id": uid4,
+          "appid": "MYAADHAAR",
+          "Accept-Language": 'en_in',
+
+
+        },
+
+        body: JSON.stringify({
+          "uidNumber": document.getElementById("aadharNo").value,
+          "captchaTxnId": txnid,
+          "captchaValue": document.getElementById("captchaCode").value,
+          "transactionId": "MYAADHAAR:" + uid4,
+        })
+
+      }).then(function (response) { return response.json(); }).then(function (json) {
+        console.log(json);
+        txn = json.txnId;
+
+      });
+    };
+
+    async function ekyc() {
+
+      var url = "https://stage1.uidai.gov.in/onlineekyc/getEkyc/";
+      var response = await fetch(url, {
+        method: 'POST', headers: {
+          "Content-Type": 'application/json',
+
+
+
+        },
+
+        body: JSON.stringify({
+
+          "uid": document.getElementById("aadharNo").value,
+          "txnId": txn,
+          "otp": document.getElementById("aadharOtp").value,
+
+        })
+
+      }).then(function (response) { return response.json(); }).then(function (json) {
+        console.log(json.status);
+        parser = new DOMParser();
+        xmlDoc = parser.parseFromString(json.eKycString, "text/xml");
+
+        if(json.status.localeCompare('Y')==0){
+        localStorage.setItem("phn",document.getElementById("phnNo").value)
+
+          var s = json.eKycString.search("country");
+        var s2 = json.eKycString.search("<LData");
+        var sliced = json.eKycString.substring(s, s2 - 2);
+        console.log(sliced);
+        const words = sliced.split(' ');
+        let parts = []
+        for (var i = 0; i < words.length; i++) {
+          parts[i] = words[i].split("=")[1];
+        }
+        console.log(parts[0])
+        var country = parts[0]
+        var district = parts[1]
+        var house = parts[2]
+        var lane = parts[3]
+        var loc = parts[4]
+        var pin = parts[5]
+        var state = parts[6]
+        var street = parts[7]
+        var vtc = parts[8]
+
+        
+
+          window.location.replace("landlord_dash.html");
+
+        } else {
+          alert(json.message)
+        }
+
+
+
+
+        //var s=new XMLSerializer().serializeToString(json.eKycString.node());
+
+        
+
+
+      });
+
+    }
+ 
+  </script>
+  </script>
 
 </html>
