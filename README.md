@@ -1,7 +1,22 @@
-# Who are we?
-We are a team of four from NSEC, Kolkata
-You can find more about us on the contributors menu to the right
-# What is this?
-This is the repo containing our solution to the UIDAI Hackathon 2021 problem statement 2
-# How is this structured?
-The webapp folder contains the webapp(in development) while a potential clone for a mobile app is planned
+# UIDAI AADHAR HACKATHON 2021
+---
+## About The Project
+  ### Who are we?
+    We are a team of four from NSEC, Kolkata
+    You can find more about us on the contributors menu to the right.
+  ### What is this?
+    This is the repo containing our solution to the UIDAI Hackathon 2021 problem statement 2 - 'Aadhar Update Challenge In Urban Areas'
+  ### How is this structured?
+    This repo is divided into folders as listed down below.
+      1. webapp - contains the webapp
+      2. documentation - contains relevant documentation
+      3. ppt - contains the required ppt
+      4. img - contains relevant images
+  ### How to use this webapp?
+    Host the site from index.html and follow the steps on screen.
+---
+## Team Members
+  1. Abjijoy Shirov Mukherjee, IT, 3rd Year, NSEC
+  2. Abjishek Paul, CSE, 3rd Year, NSEC
+  3. Aparupa Chatterjee, ECE, 3rd Year, NSEC
+  4. Rudraneel Bhattacharya, ECE, 3rd Year, NSEC
