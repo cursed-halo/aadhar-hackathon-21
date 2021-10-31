@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Aadhar Update Portal</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous" />
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+        <style>
+            .button {
+                display: inline-block;
+                border-radius: 4px;
+                background-color: blue;
+                border: none;
+                color: #ffffff;
+                text-align: center;
+                font-size: 28px;
+                padding: 20px;
+                width: 200px;
+                transition: all 0.5s;
+                cursor: pointer;
+                margin: 5px;
+            }
+
+            .button span {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
+            }
+
+            .button span:after {
+                content: "\00bb";
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.5s;
+            }
+
+            .button:hover span {
+                padding-right: 25px;
+            }
+
+            .button:hover span:after {
+                opacity: 1;
+                right: 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!--Navigation and links-->
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #619dca; font-size: 1.2rem">
+            <div class="container-fluid">
+                <a class="navbar-brand fs-1 text-white active" href="index.html">Aadhar <span
+                        class="text-success bold">Update</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item me-auto"></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="info.html">Info</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="help.html">Help</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!--End of navigation and links-->
+        <div class="container col-12">
+            <br />
+            <p class="display-5 text-center">Landlord Dashboard</p>
+            <hr>
+        </div>
+        <br /><br />
+        <div class="container col-7">
+            <div class="border border-1 border-info fs-4 text-center" id="reqId">
+                <br>
+                <div class="display-6">Available Requests</div>
+                <div class="col-12">
+                    <div class="card" id="parentNode">
+                        <div class="fs-5" id="nameF"></div>
+                        <div class="fs-5" id="phoneF"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br /><br />
+        <!-- FOOTER -->
+        <footer class="w-100 py-4 flex-shrink-0">
+            <div class="container py-4">
+                <div class="row gy-4 gx-5">
+                    <div class="col-lg-4 col-md-6">
+                        <h5 class="h1 text-white">Aadhaar</h5>
+                        <p class="small"> This portal was made by team "No Deadlines" to change AADHAR CARD address
+                            quickly and efficiently </p>
+                        <p class="small mb-0"> &copy; Copyrights. All rights reserved.Team "No Deadlines" <a
+                                class="text-primary" href="#"></a>
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-3">Quick links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="index.html">Home Page</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="info.html">Information</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-5 col-md-6">
+                        <h5 class="text-white mb-3">Write to Us</h5>
+                        <p class="small"></p>
+                        <form action="#">
+                            <div class="input-group mb-3">
+                                <input class="form-control" type="text" placeholder="Your review"
+                                    aria-label="Recipient's username" aria-describedby="button-addon2" />
+                                <button class="btn btn-primary" id="button-addon2" type="button">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        </div>
+    </body>
+    <!--End of-->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+   
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBYbLPHiESd8zXN34Xx8IUy0YnMKulorJM",
+            authDomain: "aadhar2web.firebaseapp.com",
+            databaseURL: "https://aadhar2web-default-rtdb.firebaseio.com",
+            projectId: "aadhar2web",
+            storageBucket: "aadhar2web.appspot.com",
+            messagingSenderId: "281088834445",
+            appId: "1:281088834445:web:bfff3668a134efa68f9bc4",
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script>
+        firebase.initializeApp({
+            apiKey: "AIzaSyBYbLPHiESd8zXN34Xx8IUy0YnMKulorJM",
+            authDomain: "aadhar2web.firebaseapp.com",
+            projectId: "aadhar2web",
+        });
+
+        var db = firebase.firestore();
+        // Add a second document with a generated ID.
+            var i=0;
+            var documents;  
+            db.collection("landlord")
+                .get()
+                .then((querySnapshot) => {
+                     documents = querySnapshot.docs.map((doc) => doc.data());
+                    console.log(documents);
+                    for ( i = 0; i < documents.length; i++) {
+                        document.getElementById("phoneF").innerHTML +=
+                            "<hr>" +(i+1)+
+                            '<div class="fs-4 text-center">' +
+                            "Phone Number : " +
+                            documents[i]["phone"] +
+                            "<br>" +
+                            "Status : " +
+                            documents[i]["status"] +
+                            "<br>" +
+                            '<button class="btn btn-outline-success col-3" type="button" id="btnFAgree" onclick="Accept(i)">' +
+                            " Accept" +
+                            "</button>" +
+                            '<button class="btn btn-outline-danger col-3" type="button" id="btnFAgree1" onclick="deny(this.id)">' +
+                            "Deny" +
+                            "</button>" +
+                            "</div>" +
+                            "</hr>";
+                            document.getElementById('btnFAgree1').id=i;
+                            
+                       
+                    }
+                });
+                function deny(i)
+                        {
+                        documents[i]["status"]="denied";
+                        console.log(documents[i]["phone"]);
+                        var s = db.collection('tenants').where('phone', '==', documents[i]["phone"]);
+      s.get().then((querySnapshot) => {
+        console.log(querySnapshot)
+        querySnapshot.forEach((doc) => {
+            console.log(doc)
+            db.collection("tenants").doc(doc.id).set(
+                {
+                    "status":"denied",
+                }
+            )
+         
+        });
+      });
+                        
+                        
+                        }
+
+
+        function Accept(i)
+        {
+
+            localStorage.setItem("phone",documents[i]["phone"])
+            window.location.href = "number-captcha-otp.html ";
+
+        }
+        function change()
+      
+        
+    </script>
+
+</html>
