@@ -14,7 +14,6 @@
       4. img - contains relevant images
   ### How to use this webapp?
     Host the site from index.html and follow the steps on screen.
----
 ## Team Members
     1. Abjijoy Shirov Mukherjee, IT, 3rd Year, NSEC
     2. Abjishek Paul, CSE, 3rd Year, NSEC
