@@ -68,12 +68,20 @@
           </div>
         </div>
         <div class="col-md-6">
-          <h1 class="display-4 px-4 text-center">Request Status</h1>
+          <h1 class="display-4 px-4 text-center text-uppercase">Request Status</h1>
           <hr>
+          <form class="container col-md-6">
+            <div class="form-outline mb-4">
+              <input type="number" class="form-control" id="landPhnNo2" aria-describedby="LandPhnHelp2" required
+                placeholder="Enter Landlord's Phone Number">
+            </div>
+          </form>
           <div class="d-grid gap-2 col-6 mx-auto">
-            <button class="btn btn-primary" type="button" onclick="statuscheck()">Click Here To Display</button>
+            <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+              style="background-color: #619dca;" onclick="statuscheck()">Check Status</button>
           </div>
-          <div class="text-center text-muted" id="statusState">Please Click The Button To Check</div>
+          <div class="text-center text-success fs-3" id="statusState"></div>
+          <hr>
         </div>
       </div>
     </section>
@@ -182,17 +190,16 @@
 
     }
 
-    function statuscheck()
-    {
-      var s = db.collection('landlord').where('phone', '==', document.getElementById("landPhnNo").value);
-s.get().then((querySnapshot) => {
-  console.log(querySnapshot)
-    querySnapshot.forEach((doc) => {
-      
-     
-        document.getElementById("statusState").innerHTML=doc.data()["status"];
-    });
-});
+    function statuscheck() {
+      var s = db.collection('landlord').where('phone', '==', document.getElementById("landPhnNo2").value);
+      s.get().then((querySnapshot) => {
+        console.log(querySnapshot)
+        querySnapshot.forEach((doc) => {
+
+
+          document.getElementById("statusState").innerHTML = doc.data()["status"];
+        });
+      });
     }
 
   </script>
