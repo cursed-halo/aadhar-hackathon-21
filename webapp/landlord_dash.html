@@ -57,6 +57,8 @@
             <div class="form-check form-switch card">
             <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
             <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+            
+
         </div>
         <div class="form-check form-switch card">
             <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
@@ -115,5 +117,57 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
     </body>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyBYbLPHiESd8zXN34Xx8IUy0YnMKulorJM",
+          authDomain: "aadhar2web.firebaseapp.com",
+          databaseURL: "https://aadhar2web-default-rtdb.firebaseio.com",
+          projectId: "aadhar2web",
+          storageBucket: "aadhar2web.appspot.com",
+          messagingSenderId: "281088834445",
+          appId: "1:281088834445:web:bfff3668a134efa68f9bc4"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+      </script>
+      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+      <script>
+
+            firebase.initializeApp({
+            apiKey: "AIzaSyBYbLPHiESd8zXN34Xx8IUy0YnMKulorJM",
+            authDomain: "aadhar2web.firebaseapp.com",
+            projectId: "aadhar2web",
+            });
+
+            var db = firebase.firestore();
+            // Add a second document with a generated ID.
+            function add()
+            {
+db.collection("users").add({
+    first: "Alan",
+    middle: "Mathison",
+    last: "Turing",
+    born: 1912
+})
+.then((docRef) => {
+    console.log("Document written with ID: ", docRef.id);
+})
+.catch((error) => {
+    console.error("Error adding document: ", error);
+});
+            }
+      </script>
+      
+
+
+
 
 </html>
