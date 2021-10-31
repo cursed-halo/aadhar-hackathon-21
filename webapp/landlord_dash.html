@@ -100,18 +100,21 @@
     <div class="container col-12">
       <br />
       <p class="display-5 text-center">Landlord Dashboard</p>
+      <button class="btn btn-primary col-1" type="button" id="btnFDeny" onclick="display()">
+        Get REQUESTS
+      </button>
       <hr />
       <div class="border border-5 fs-4 text-center" id="reqId">
         *INCOMING REQUESTS COME HERE*
         <div class="col-12">
           <div class="card border border-dark" id="parentNode">
-            <p class="fs-5" id="nameF">Name Goes here</p>
-            <p class="fs-5" id="phoneF">Phone Number Goes here</p>
+            <div class="fs-5" id="nameF"></div>
+            <div class="fs-5" id="phoneF"></div>
           </div>
-          <button class="btn btn-primary col-1" type="button" id="btnF">
+          <button class="btn btn-primary col-1" type="button" id="btnFAgree">
             Accept
           </button>
-          <button class="btn btn-primary col-1" type="button" id="btnF">
+          <button class="btn btn-primary col-1" type="button" id="btnFDeny">
             Deny
           </button>
         </div>
@@ -205,20 +208,24 @@
 
     var db = firebase.firestore();
     // Add a second document with a generated ID.
-    function add() {
-      db.collection("users")
-        .add({
-          first: "Alan",
-          middle: "Mathison",
-          last: "Turing",
-          born: 1912,
-        })
-        .then((docRef) => {
-          console.log("Document written with ID: ", docRef.id);
-        })
-        .catch((error) => {
-          console.error("Error adding document: ", error);
-        });
-    }
+    function display()
+            {
+                db.collection('landlord')
+                .get()
+                .then(querySnapshot => {
+                    const documents = querySnapshot.docs.map(doc => doc.data())
+                    console.log(documents)
+                    for(var i=0;i<documents.length;i++)
+                    {
+                        document.getElementById('phoneF').innerHTML += '<hr>'+'<div>' + "phone: "+documents[i]["phone"] +"<br>" +"status "+documents[i]["status"]+'<br>'+'<button class="btn btn-primary col-1" type="button" id="btnFAgree$i">'+
+           ' Accept'+
+          '</button>'+'<button class="btn btn-primary col-1" type="button" id="btnFDeny">'+
+            "Deny"+
+          '</button>'+'</div>'+'</hr>';
+                        
+                        console.log(documents[i])
+                    }
+  })
+            }
   </script>
 </html>
